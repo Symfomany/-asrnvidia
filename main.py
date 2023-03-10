@@ -4,7 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from transformers import AutoModelForCTC, Wav2Vec2Processor
 import torch
 import torchaudio
-
+from fastapi import FastAPI, File, UploadFile
+from pathlib import Path
 
 from fastapi.responses import FileResponse
 app = FastAPI()
@@ -35,10 +36,12 @@ except BaseException as e:
 # app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 
-@app.get("/")
-def index():
-    wav_path = "./files/voirie.wav"  # path to your audio file
-    waveform, sample_rate = torchaudio.load(wav_path)
+@app.post("/upload/")
+async def index(file: UploadFile):
+    wav_path = file.file
+    chemin = "./files/voirie.wav"
+    Path("./files/voirie.wav").write_bytes(wav_path)
+    waveform, sample_rate = torchaudio.load(chemin)
     waveform = waveform.squeeze(axis=0)  #
 
     # normalize
@@ -54,7 +57,6 @@ def index():
     predicted_ids = torch.argmax(logits, dim=-1)
     predicted_sentence = processor.batch_decode(predicted_ids)[0]
 
-    sentence = ""
     predicted_sentence = predicted_sentence.lower()
     print(predicted_sentence, "prediction")
     return {"message": predicted_sentence}

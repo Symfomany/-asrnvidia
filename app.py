@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import torch
-import torchaudio
+# import torchaudio
 from transformers import AutoModelForCTC, Wav2Vec2Processor
 from flask import Flask,  request
 from flask_cors import CORS

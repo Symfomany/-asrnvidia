@@ -1,5 +1,4 @@
 ---
-sdk: docker
 title: ASR
 emoji: 🐢
 colorFrom: purple

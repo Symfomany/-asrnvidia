@@ -1,3 +1,15 @@
-numpy==1.24.1
-PyAudio==0.2.13
-pybind11==2.10.3
+# Python dependencies required for development
+astunparse
+expecttest
+hypothesis
+numpy
+psutil
+pyyaml
+requests
+setuptools
+types-dataclasses
+typing-extensions
+sympy
+filelock
+networkx
+jinja2

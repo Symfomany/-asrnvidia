@@ -32,7 +32,7 @@ except BaseException as e:
     print('Failed to do something: ' + str(e))
 
 
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+# app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 
 @app.get("/")

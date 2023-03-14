@@ -41,6 +41,7 @@ async def index(file: UploadFile):
     wav_path = file.file
     chemin = "./files/voirie.wav"
     Path("./files/voirie.wav").write_bytes(wav_path)
+
     waveform, sample_rate = torchaudio.load(chemin)
     waveform = waveform.squeeze(axis=0)  #
 

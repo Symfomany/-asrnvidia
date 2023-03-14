@@ -19,9 +19,9 @@ ENV HOME=/home/user \
     PATH=/home/user/.local/bin:$PATH
 
 # Set the working directory to the user's home directory
-WORKDIR $HOME/app
+WORKDIR $HOME
 
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
-COPY --chown=user . $HOME/app
+COPY --chown=user . $HOME
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["uvicorn", "model:app", "--host", "0.0.0.0", "--port", "8000"]

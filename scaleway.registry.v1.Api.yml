@@ -5,12 +5,6 @@ info:
     # Introduction
 
     Container Registry API completes the docker command line to allow you to fully manage your namespaces, images and tags.
-    ID: SCWHF1QAJEQJ8N8HJ71E
-    SECRET: 81b64631-379d-4abf-aab3-00f1ff9ba7bc
-
-    Identifiant du Namespace
-    6eadd078-cde4-4123-a869-f168da39a670
-
     # Concepts
 
     ## Registries

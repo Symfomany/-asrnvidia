@@ -1,5 +1,8 @@
 # Use the official Python 3.9 image
-FROM nvidia/cuda:11.4.0-base-ubuntu20.04
+# FROM nvidia/cuda:11.4.0-base-ubuntu20.04
+FROM python:3.9
+
+
 RUN apt update
 RUN apt-get install -y python3 python3-pip
 
@@ -11,6 +14,7 @@ WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+
 
 # Install requirements.txt 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt

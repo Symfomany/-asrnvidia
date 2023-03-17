@@ -3,10 +3,6 @@
 FROM python:3.9
 
 
-RUN apt update
-RUN apt-get install -y python3 python3-pip
-
-
 # Set the working directory to /code
 WORKDIR /code
 

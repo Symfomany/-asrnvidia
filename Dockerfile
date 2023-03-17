@@ -1,5 +1,8 @@
 # Use the official Python 3.9 image
-FROM python:3.9
+FROM nvidia/cuda:11.4.0-base-ubuntu20.04
+RUN apt update
+RUN apt-get install -y python3 python3-pip
+
 
 # Set the working directory to /code
 WORKDIR /code
@@ -7,8 +10,11 @@ WORKDIR /code
 # Copy the current directory contents into the container at /code
 COPY ./requirements.txt /code/requirements.txt
 
+RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+
 # Install requirements.txt 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
 
 # Set up a new user named "user" with user ID 1000
 RUN useradd -m -u 1000 user
